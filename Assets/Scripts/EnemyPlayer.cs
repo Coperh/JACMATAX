@@ -10,7 +10,7 @@ public class EnemyPlayer : GenericPlayer
     {
         base.Start();
         // after 2 seconds start fireing every second
-        InvokeRepeating("Fire", 2.0f, 1f);
+        InvokeRepeating("Fire", 10.0f, 1f);
     }
     protected new void Update()
     {
