@@ -20,6 +20,7 @@ public class RoundController : MonoBehaviour
     void Start()
     {
         GetSceneLoader();
+
         SpawnSprites();
         GetHealthObject();
         UnFreezePlayers();
@@ -36,6 +37,8 @@ public class RoundController : MonoBehaviour
         sceneLoader = this.gameObject.GetComponent<SceneLoader>();
 
     }
+
+
 
     private void FreezePlayers() {
         // freeze players 
