@@ -14,24 +14,40 @@ public class GenericPlayer : MonoBehaviour
     [SerializeField] protected GameObject laserPrefab;
     [SerializeField] private float laserSpeed = 10f;
     [SerializeField] private float laserDistance = 1f; // distance laser spawns from sprite
+    public string test = "boop";
 
     // health parameters
-    private HealthSystem health;
+    public HealthSystem health;
     [SerializeField] private int damage = 10;
 
+
+
+    // Called when funciton is initialized
+    void Awake()
+    {
+        health = new HealthSystem();
+    }
 
     // Start is called before the first frame update
     protected void Start()
     {
-        health = new HealthSystem();
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
     }
 
     protected void Update()
     {
-        IsAlive();
     }
+
+
+
+    public float GetHealth() {
+
+        return health.GetHealth();
+    }
+
+
+
 
     // damage
     public void DamagePlayer() {
@@ -39,14 +55,6 @@ public class GenericPlayer : MonoBehaviour
         health.Damage(damage);
         Debug.Log(health.GetHealth());
         
-
-    }
-
-    private void IsAlive() {
-        if (!health.IsAlive()) {
-            Debug.Log("Player is dead");
-            Destroy(gameObject);
-        }
 
     }
 
