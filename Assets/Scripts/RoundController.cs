@@ -19,6 +19,8 @@ public class RoundController : MonoBehaviour
     {
         SpawnSprites();
         GetHealthObject();
+
+        UnFreezePlayers();
     }
 
 
@@ -26,6 +28,26 @@ public class RoundController : MonoBehaviour
     void Update()
     {
         CheckHealth();
+    }
+
+    private void FreezePlayers() {
+
+        RightPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        LeftPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+        LeftPlayer.GetComponent<GenericPlayer>().enabled = false;
+        RightPlayer.GetComponent<GenericPlayer>().enabled = false;
+
+    }
+
+    private void UnFreezePlayers() {
+        // unfreeze players
+        RightPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        LeftPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        LeftPlayer.GetComponent<GenericPlayer>().enabled = true;
+        RightPlayer.GetComponent<GenericPlayer>().enabled = true;
+
+
     }
 
 
@@ -59,6 +81,8 @@ public class RoundController : MonoBehaviour
             LeftPlayerPrefab,
             leftPos,
             Quaternion.identity);
+
+        FreezePlayers();
     }
 
 
