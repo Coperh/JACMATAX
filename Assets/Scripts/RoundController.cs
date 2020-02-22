@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoundController : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class RoundController : MonoBehaviour
     protected GameObject LeftPlayer;
     protected HealthSystem LeftPlayerHealth;
 
-    private SceneLoader sceneLoader;
+    private Slider RightPlayerHealthSlider;
+    private Slider LeftPlayerHealthSlider;
 
+    private SceneLoader sceneLoader;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,7 @@ public class RoundController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            UpdateHealthSlider();
             CheckHealth();
     }
 
@@ -77,7 +81,6 @@ public class RoundController : MonoBehaviour
 
     private void CheckHealth() {
 
-        Debug.Log("right player health is: " + RightPlayerHealth.GetHealth());
         if (RightPlayerHealth.GetHealth() <= 0) {
             EndRound(RightPlayer);
             }
@@ -86,9 +89,19 @@ public class RoundController : MonoBehaviour
 
     }
 
+    private void UpdateHealthSlider() {
+        RightPlayerHealthSlider.value = RightPlayerHealth.GetHealth();
+        LeftPlayerHealthSlider.value = LeftPlayerHealth.GetHealth();
+    }
+
+
     private void GetHealthObject() {
         RightPlayerHealth = RightPlayer.GetComponent<GenericPlayer>().health;
         LeftPlayerHealth = LeftPlayer.GetComponent<GenericPlayer>().health;
+
+        RightPlayerHealthSlider = GameObject.Find("RightPlayerHealth").GetComponent<Slider>();
+        LeftPlayerHealthSlider = GameObject.Find("LeftPlayerHealth").GetComponent<Slider>();
+
     }
 
     private void SpawnSprites() {
