@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoundController : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class RoundController : MonoBehaviour
     protected GameObject LeftPlayer;
     protected HealthSystem LeftPlayerHealth;
 
-    private SceneLoader sceneLoader;
+    private Slider RightPlayerHealthSlider;
+    private Slider LeftPlayerHealthSlider;
+    private Text RightPlayerHealthText;
+    private Text LeftPlayerHealthText;
 
+    private SceneLoader sceneLoader;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +35,14 @@ public class RoundController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckHealth();
+            UpdateHealthSlider();
+            CheckHealth();
     }
 
     private void GetSceneLoader() {
         sceneLoader = this.gameObject.GetComponent<SceneLoader>();
 
     }
-
-
 
     private void FreezePlayers() {
         // freeze players 
@@ -62,8 +66,8 @@ public class RoundController : MonoBehaviour
 
 
     private void EndRound(GameObject loser) {
-        FreezePlayers();
 
+        FreezePlayers();
         Destroy(loser);
         // show win screen
 
@@ -75,20 +79,35 @@ public class RoundController : MonoBehaviour
     }
     
 
-
     private void CheckHealth() {
 
         if (RightPlayerHealth.GetHealth() <= 0) {
             EndRound(RightPlayer);
             }
 
-        else if (LeftPlayerHealth.GetHealth() <= 0) EndRound(RightPlayer);
+        else if (LeftPlayerHealth.GetHealth() <= 0) EndRound(LeftPlayer);
 
     }
 
+    private void UpdateHealthSlider() {
+        RightPlayerHealthSlider.value = RightPlayerHealth.GetHealth();
+        LeftPlayerHealthSlider.value = LeftPlayerHealth.GetHealth();
+
+        RightPlayerHealthText.text= RightPlayerHealthSlider.value.ToString();
+        LeftPlayerHealthText.text = LeftPlayerHealthSlider.value.ToString();
+    }
+
+
     private void GetHealthObject() {
         RightPlayerHealth = RightPlayer.GetComponent<GenericPlayer>().health;
-        LeftPlayerHealth = LeftPlayer.GetComponent<GenericPlayer>().health;
+        LeftPlayerHealth  = LeftPlayer.GetComponent<GenericPlayer>().health;
+
+        RightPlayerHealthSlider = GameObject.Find("RightPlayerHealthSlider").GetComponent<Slider>();
+        LeftPlayerHealthSlider  = GameObject.Find("LeftPlayerHealthSlider").GetComponent<Slider>();
+
+        RightPlayerHealthText = GameObject.Find("RightPlayerHealthText").GetComponent<Text>();
+        LeftPlayerHealthText  = GameObject.Find("LeftPlayerHealthText").GetComponent<Text>();
+
     }
 
     private void SpawnSprites() {
