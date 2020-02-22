@@ -16,6 +16,8 @@ public class RoundController : MonoBehaviour
 
     private Slider RightPlayerHealthSlider;
     private Slider LeftPlayerHealthSlider;
+    private Text RightPlayerHealthText;
+    private Text LeftPlayerHealthText;
 
     private SceneLoader sceneLoader;
 
@@ -73,11 +75,9 @@ public class RoundController : MonoBehaviour
 
         // end scene
         sceneLoader.LoadNextScene();
-        
 
     }
     
-
 
     private void CheckHealth() {
 
@@ -92,15 +92,21 @@ public class RoundController : MonoBehaviour
     private void UpdateHealthSlider() {
         RightPlayerHealthSlider.value = RightPlayerHealth.GetHealth();
         LeftPlayerHealthSlider.value = LeftPlayerHealth.GetHealth();
+
+        RightPlayerHealthText.text= RightPlayerHealthSlider.value.ToString();
+        LeftPlayerHealthText.text = LeftPlayerHealthSlider.value.ToString();
     }
 
 
     private void GetHealthObject() {
         RightPlayerHealth = RightPlayer.GetComponent<GenericPlayer>().health;
-        LeftPlayerHealth = LeftPlayer.GetComponent<GenericPlayer>().health;
+        LeftPlayerHealth  = LeftPlayer.GetComponent<GenericPlayer>().health;
 
-        RightPlayerHealthSlider = GameObject.Find("RightPlayerHealth").GetComponent<Slider>();
-        LeftPlayerHealthSlider = GameObject.Find("LeftPlayerHealth").GetComponent<Slider>();
+        RightPlayerHealthSlider = GameObject.Find("RightPlayerHealthSlider").GetComponent<Slider>();
+        LeftPlayerHealthSlider  = GameObject.Find("LeftPlayerHealthSlider").GetComponent<Slider>();
+
+        RightPlayerHealthText = GameObject.Find("RightPlayerHealthText").GetComponent<Text>();
+        LeftPlayerHealthText  = GameObject.Find("LeftPlayerHealthText").GetComponent<Text>();
 
     }
 
