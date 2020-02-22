@@ -30,15 +30,13 @@ public class RoundController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckHealth();
+            CheckHealth();
     }
 
     private void GetSceneLoader() {
         sceneLoader = this.gameObject.GetComponent<SceneLoader>();
 
     }
-
-
 
     private void FreezePlayers() {
         // freeze players 
@@ -62,8 +60,8 @@ public class RoundController : MonoBehaviour
 
 
     private void EndRound(GameObject loser) {
-        FreezePlayers();
 
+        FreezePlayers();
         Destroy(loser);
         // show win screen
 
@@ -71,6 +69,7 @@ public class RoundController : MonoBehaviour
 
         // end scene
         sceneLoader.LoadNextScene();
+        
 
     }
     
@@ -78,11 +77,12 @@ public class RoundController : MonoBehaviour
 
     private void CheckHealth() {
 
+        Debug.Log("right player health is: " + RightPlayerHealth.GetHealth());
         if (RightPlayerHealth.GetHealth() <= 0) {
             EndRound(RightPlayer);
             }
 
-        else if (LeftPlayerHealth.GetHealth() <= 0) EndRound(RightPlayer);
+        else if (LeftPlayerHealth.GetHealth() <= 0) EndRound(LeftPlayer);
 
     }
 
