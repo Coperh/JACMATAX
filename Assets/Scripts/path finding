@@ -15,10 +15,7 @@ public class pathfinding
         shortestPath.Reverse();
         return shortestPath;
     }
-}
-
-
-
+    
     private void AstarSearch()
     {
         Start.MinCostToStart = 0;
@@ -48,4 +45,5 @@ public class pathfinding
             if (node == End)
                 return;
         } while (prioQueue.Any());
+    }
     }
