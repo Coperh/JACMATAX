@@ -36,7 +36,7 @@ public class RoundController : MonoBehaviour
     void Update()
     {
             UpdateHealthSlider();
-            CheckHealth();
+            //CheckHealth();
     }
 
     private void GetSceneLoader() {
@@ -79,35 +79,47 @@ public class RoundController : MonoBehaviour
     }
     
 
+    // check health condition
     private void CheckHealth() {
 
-        if (RightPlayerHealth.GetHealth() <= 0) {
-            EndRound(RightPlayer);
-            }
+        if (RightPlayerHealthSlider.value <= 0) {
+        	EndRound(RightPlayer);
+        }
 
-        else if (LeftPlayerHealth.GetHealth() <= 0) EndRound(LeftPlayer);
+        else if (LeftPlayerHealthSlider.value <= 0) {
+        	EndRound(LeftPlayer);
+        }
 
     }
 
+    // method to update health's slider and text
+    // call ChechHealth() to check win conditions
     private void UpdateHealthSlider() {
+        // get player's health conditions from HealthSystem's method Gethealth()
+        // set the sliders' values
         RightPlayerHealthSlider.value = RightPlayerHealth.GetHealth();
         LeftPlayerHealthSlider.value = LeftPlayerHealth.GetHealth();
 
-        RightPlayerHealthText.text= RightPlayerHealthSlider.value.ToString();
+        // set the Texts' value as the sliders' value
+        RightPlayerHealthText.text = RightPlayerHealthSlider.value.ToString();
         LeftPlayerHealthText.text = LeftPlayerHealthSlider.value.ToString();
+
+        CheckHealth();
     }
 
-
+    // method to find the health objects
     private void GetHealthObject() {
+        // set Right and Left Player Heath
         RightPlayerHealth = RightPlayer.GetComponent<GenericPlayer>().health;
         LeftPlayerHealth  = LeftPlayer.GetComponent<GenericPlayer>().health;
 
+        // set the corresponding sliders game object
         RightPlayerHealthSlider = GameObject.Find("RightPlayerHealthSlider").GetComponent<Slider>();
         LeftPlayerHealthSlider  = GameObject.Find("LeftPlayerHealthSlider").GetComponent<Slider>();
 
+        // set the corresponding Text game object
         RightPlayerHealthText = GameObject.Find("RightPlayerHealthText").GetComponent<Text>();
-        LeftPlayerHealthText  = GameObject.Find("LeftPlayerHealthText").GetComponent<Text>();
-
+        LeftPlayerHealthText  = GameObject.Find("LeftPlayerHealthText").GetComponent<Text>();   
     }
 
     private void SpawnSprites() {
