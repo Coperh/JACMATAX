@@ -9,7 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 7cc4fb2554dd208458ef9f244c49a117
   - enabled: 1
-    path: Assets/Scenes/Round.unity
+    path: Assets/Scenes/SinglePlayer.unity
+    guid: cf90eb7b6abf82042820490de623b5f0
+  - enabled: 1
+    path: Assets/Scenes/MultiPlayer.unity
+    guid: d12c811925c9c1c4ab368d19d7338283
+  - enabled: 1
+    path: Assets/Scenes/GrassLevel.unity
     guid: da4e6f9d6be65aa4981a03afdc7a892a
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity

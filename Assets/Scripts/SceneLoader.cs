@@ -10,6 +10,18 @@ public class SceneLoader : MonoBehaviour {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(++currentSceneIndex);
     }
+
+
+    public void LoadSinglePlayer() {
+        SceneManager.LoadScene(1);
+
+    }
+
+    public void LoadMultiPlayer()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void LoadStartScene()
     {
         SceneManager.LoadScene(0);

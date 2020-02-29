@@ -14,18 +14,19 @@ public class RoundController : MonoBehaviour
     protected GameObject LeftPlayer;
     protected HealthSystem LeftPlayerHealth;
 
+    private Players winner;
+
     private Slider RightPlayerHealthSlider;
     private Slider LeftPlayerHealthSlider;
     private Text RightPlayerHealthText;
     private Text LeftPlayerHealthText;
 
-    private SceneLoader sceneLoader;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        GetSceneLoader();
-
         SpawnSprites();
         GetHealthObject();
         UnFreezePlayers();
@@ -39,10 +40,7 @@ public class RoundController : MonoBehaviour
             //CheckHealth();
     }
 
-    private void GetSceneLoader() {
-        sceneLoader = this.gameObject.GetComponent<SceneLoader>();
 
-    }
 
     private void FreezePlayers() {
         // freeze players 
@@ -68,13 +66,15 @@ public class RoundController : MonoBehaviour
     private void EndRound(GameObject loser) {
 
         FreezePlayers();
+        enabled = false;
         Destroy(loser);
         // show win screen
 
         // go onto next round
 
         // end scene
-        sceneLoader.LoadNextScene();
+        // get game controller and tell it round has ended;
+        GameObject.Find("GameController").GetComponent<GameController>().EndRound(winner);
 
     }
     
@@ -83,11 +83,14 @@ public class RoundController : MonoBehaviour
     private void CheckHealth() {
 
         if (RightPlayerHealthSlider.value <= 0) {
-        	EndRound(RightPlayer);
+            winner = Players.LeftPlayer;
+            EndRound(LeftPlayer);
         }
 
         else if (LeftPlayerHealthSlider.value <= 0) {
-        	EndRound(LeftPlayer);
+            
+            winner = Players.RightPlayer;
+            EndRound(RightPlayer);
         }
 
     }
