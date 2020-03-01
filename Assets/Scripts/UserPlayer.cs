@@ -32,6 +32,7 @@ public class UserPlayer : GenericPlayer
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, playerRigidBody.velocity.y);
 
         playerRigidBody.velocity = playerVelocity;
+        FlipSprite();
     }
 
 

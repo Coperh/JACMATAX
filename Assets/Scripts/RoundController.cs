@@ -29,9 +29,11 @@ public class RoundController : MonoBehaviour
     {
         SpawnSprites();
         GetHealthObject();
+
+        SetAmmo();
+
         UnFreezePlayers();
     }
-
 
     // Update is called once per frame
     void Update()
@@ -40,6 +42,15 @@ public class RoundController : MonoBehaviour
             //CheckHealth();
     }
 
+
+
+    void SetAmmo() {
+        GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
+
+        LeftPlayer.GetComponent<GenericPlayer>().ammo = gc.leftAmmo;
+
+        RightPlayer.GetComponent<GenericPlayer>().ammo = gc.rightAmmo;
+    }
 
 
     private void FreezePlayers() {
@@ -67,14 +78,20 @@ public class RoundController : MonoBehaviour
 
         FreezePlayers();
         enabled = false;
+
+        // calculate remaining ammo
+        int leftAmmo = LeftPlayer.GetComponent<GenericPlayer>().ammo;
+        int rightAmmo = RightPlayer.GetComponent<GenericPlayer>().ammo;
+
+
+
+
         Destroy(loser);
         // show win screen
 
-        // go onto next round
-
         // end scene
         // get game controller and tell it round has ended;
-        GameObject.Find("GameController").GetComponent<GameController>().EndRound(winner);
+        GameObject.Find("GameController").GetComponent<GameController>().EndRound(winner,leftAmmo, rightAmmo);
 
     }
     

@@ -19,6 +19,7 @@ public class GenericPlayer : MonoBehaviour
     // health parameters
     public HealthSystem health;
     [SerializeField] private int damage = 10;
+    public int ammo;
 
 
 
@@ -33,12 +34,14 @@ public class GenericPlayer : MonoBehaviour
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
+
     }
 
     protected void Update()
     {
-        FlipSprite();
     }
+
+
 
 
 
@@ -55,27 +58,28 @@ public class GenericPlayer : MonoBehaviour
         // damage the player
         health.Damage(damage);
         Debug.Log(health.GetHealth());
-        
-
     }
 
 
     // Player Controls
     protected void Fire()
     {
-
-        float direction = transform.localScale.x;
-        // starting post of laser
-        Vector2 laserPos = new Vector2(transform.position.x + (laserDistance * direction),
-        transform.position.y);
-        // create laser
-        GameObject laser = Instantiate(
-            laserPrefab,
-            laserPos,
-            Quaternion.identity) as GameObject;
-        // give velocity (direction facing * speed)
-        float currentSpeed = laserSpeed * direction;
-        laser.GetComponent<Rigidbody2D>().velocity = new Vector2(currentSpeed, 0);
+        if (ammo > 1)
+        {
+            ammo--;
+            float direction = transform.localScale.x;
+            // starting post of laser
+            Vector2 laserPos = new Vector2(transform.position.x + (laserDistance * direction),
+            transform.position.y);
+            // create laser
+            GameObject laser = Instantiate(
+                laserPrefab,
+                laserPos,
+                Quaternion.identity) as GameObject;
+            // give velocity (direction facing * speed)
+            float currentSpeed = laserSpeed * direction;
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(currentSpeed, 0);
+        }
     }
 
 
