@@ -37,6 +37,7 @@ public class GenericPlayer : MonoBehaviour
 
     protected void Update()
     {
+        FlipSprite();
     }
 
 

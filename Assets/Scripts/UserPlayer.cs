@@ -19,7 +19,6 @@ public class UserPlayer : GenericPlayer
         // call base update method
         base.Update();
         Run();
-        FlipSprite();
         DetectJump();
         DetectFire();
 
