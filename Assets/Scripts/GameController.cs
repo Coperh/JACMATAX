@@ -21,8 +21,8 @@ public class GameController : MonoBehaviour
     private int leftScore = 0;
     private int rightScore = 0;
 
-    public int leftAmmo = 22;
-    public int rightAmmo = 22;
+    public int leftAmmo = 100;
+    public int rightAmmo = 100;
 
 
 
@@ -50,8 +50,9 @@ public class GameController : MonoBehaviour
     // called by round controller to end current round
     public void EndRound(Players player, int leftAmmoRemaining, int rightAmmoRemaining) {
 
+        Debug.Log("round " + roundsPlayed.ToString());
 
-        Debug.Log(leftAmmoRemaining.ToString() + " " + rightAmmoRemaining.ToString());
+
 
         int score;
         float ammoSpent;
@@ -74,13 +75,14 @@ public class GameController : MonoBehaviour
             rightScore = rightScore + score;
         }
 
-
-
+        Debug.Log("Start " +leftAmmo.ToString() + " " + rightAmmo.ToString());
+        Debug.Log("Remain " +  leftAmmoRemaining.ToString() + " " + rightAmmoRemaining.ToString());
         // ammo for next round is all of spend ammo + half of unspent ammo
         leftAmmo = (leftAmmo - leftAmmoRemaining) + (leftAmmoRemaining /2);
         rightAmmo = (rightAmmo - rightAmmoRemaining) + (rightAmmoRemaining / 2);
 
         Debug.Log(leftScore.ToString() + " " + rightScore.ToString());
+        Debug.Log(leftAmmo.ToString() + " " + rightAmmo.ToString());
         roundOver = true;
     }
 

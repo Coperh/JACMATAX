@@ -21,6 +21,10 @@ public class RoundController : MonoBehaviour
     private Text RightPlayerHealthText;
     private Text LeftPlayerHealthText;
 
+    private Text RightAmmoText;
+    private Text LeftAmmoText;
+    
+
 
 
 
@@ -46,7 +50,6 @@ public class RoundController : MonoBehaviour
 
     void SetAmmo() {
         GameController gc = GameObject.Find("GameController").GetComponent<GameController>();
-
         LeftPlayer.GetComponent<GenericPlayer>().ammo = gc.leftAmmo;
 
         RightPlayer.GetComponent<GenericPlayer>().ammo = gc.rightAmmo;
@@ -124,7 +127,10 @@ public class RoundController : MonoBehaviour
         RightPlayerHealthText.text = RightPlayerHealthSlider.value.ToString();
         LeftPlayerHealthText.text = LeftPlayerHealthSlider.value.ToString();
 
-        CheckHealth();
+        // Update Ammo
+        RightAmmoText.text = RightPlayer.GetComponent<GenericPlayer>().ammo.ToString();
+        LeftAmmoText.text = LeftPlayer.GetComponent<GenericPlayer>().ammo.ToString();
+
     }
 
     // method to find the health objects
@@ -139,7 +145,12 @@ public class RoundController : MonoBehaviour
 
         // set the corresponding Text game object
         RightPlayerHealthText = GameObject.Find("RightPlayerHealthText").GetComponent<Text>();
-        LeftPlayerHealthText  = GameObject.Find("LeftPlayerHealthText").GetComponent<Text>();   
+        LeftPlayerHealthText  = GameObject.Find("LeftPlayerHealthText").GetComponent<Text>();
+
+        // get Ammo Texts
+        RightAmmoText = GameObject.Find("RightAmmoCount").GetComponent<Text>();
+        LeftAmmoText = GameObject.Find("LeftAmmoCount").GetComponent<Text>();
+
     }
 
     private void SpawnSprites() {

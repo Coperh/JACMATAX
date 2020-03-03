@@ -19,7 +19,7 @@ public class GenericPlayer : MonoBehaviour
     // health parameters
     public HealthSystem health;
     [SerializeField] private int damage = 10;
-    public int ammo;
+    public int ammo = 100;
 
 
 
