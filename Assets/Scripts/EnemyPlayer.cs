@@ -15,6 +15,7 @@ public class EnemyPlayer : GenericPlayer
     protected new void Start()
     {
         base.Start();
+        FindTarget();
 
 
         // after 2 seconds start fireing every second
@@ -24,6 +25,15 @@ public class EnemyPlayer : GenericPlayer
     {
         base.Update();
     }
+
+
+    private void FindTarget() {
+        GameObject target = GameObject.Find("LeftPlayer(Clone)");
+        GetComponent<AIDestinationSetter>().target = target.transform;
+
+    }
+
+
 
 
 

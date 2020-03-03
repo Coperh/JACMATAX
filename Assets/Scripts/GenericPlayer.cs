@@ -66,7 +66,7 @@ public class GenericPlayer : MonoBehaviour
     {
         if (ammo > 1)
         {
-            SoundManagerScript.PlaySound("fire");
+            //SoundManagerScript.PlaySound("fire");
             ammo--;
             float direction = transform.localScale.x;
             // starting post of laser
@@ -101,7 +101,7 @@ public class GenericPlayer : MonoBehaviour
     {
 
     // if player is not touching ground
-    if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+    //if (!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
      Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
             playerRigidBody.velocity += jumpVelocity;
     }
