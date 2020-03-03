@@ -39,7 +39,7 @@ public class RoundController : MonoBehaviour
     void Update()
     {
             UpdateHealthSlider();
-            //CheckHealth();
+            CheckHealth();
     }
 
 

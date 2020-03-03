@@ -15,9 +15,8 @@ GameObject:
   - component: {fileID: 216003203359297829}
   - component: {fileID: -3503928445073511482}
   - component: {fileID: 1953505964282746019}
-  - component: {fileID: 7554961942149785500}
-  - component: {fileID: -6333428022585546231}
-  m_Layer: 0
+  - component: {fileID: 8949633208633027502}
+  m_Layer: 8
   m_Name: RightPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -185,30 +184,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.7
+  radius: 0.45
   height: 2
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 50
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 1.2
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 1
   constrainInsideGraph: 0
---- !u!114 &7554961942149785500
+--- !u!114 &8949633208633027502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,25 +220,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 5407926623606407500, guid: e50e4d28945c1de45b66a4422fec412c, type: 3}
---- !u!50 &-6333428022585546231
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4881514251550959784}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  target: {fileID: 0}

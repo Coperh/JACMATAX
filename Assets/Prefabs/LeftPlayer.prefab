@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5407926623606407497}
   - component: {fileID: 5407926623606407496}
   - component: {fileID: 5407926623606407511}
-  m_Layer: 0
-  m_Name: Player
+  m_Layer: 8
+  m_Name: LeftPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,4 +159,6 @@ MonoBehaviour:
     type: 3}
   laserSpeed: 10
   laserDistance: 1
+  test: boop
   damage: 10
+  ammo: 0
