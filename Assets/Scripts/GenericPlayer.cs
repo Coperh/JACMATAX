@@ -66,7 +66,7 @@ public class GenericPlayer : MonoBehaviour
     {
         if (ammo > 1)
         {
-            //SoundManagerScript.PlaySound("fire");
+            SoundManagerScript.PlaySound("fire");
             ammo--;
             float direction = transform.localScale.x;
             // starting post of laser

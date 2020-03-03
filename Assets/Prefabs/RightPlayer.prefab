@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4881514251550959786}
   - component: {fileID: 4881514251550959785}
   - component: {fileID: 4881514251550959781}
+  - component: {fileID: -7163498942941186480}
   - component: {fileID: 216003203359297829}
   - component: {fileID: -3503928445073511482}
   - component: {fileID: 1953505964282746019}
@@ -122,6 +123,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000000006251304, y: 0.0546527}
   m_Size: {x: 1.0000002, y: 0.8879924}
   m_Direction: 1
+--- !u!50 &-7163498942941186480
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881514251550959784}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &216003203359297829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +165,7 @@ MonoBehaviour:
   test: boop
   damage: 10
   ammo: 0
+  path: {fileID: 0}
 --- !u!114 &-3503928445073511482
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,8 +7,8 @@ public class EnemyPlayer : GenericPlayer
 {
 
     private GameObject enemy;
-    
-    
+
+    public AIPath path;
 
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class EnemyPlayer : GenericPlayer
     {
         base.Start();
         FindTarget();
-
+        GetPath();
 
         // after 2 seconds start fireing every second
         InvokeRepeating("Fire", 10.0f, 1f);
@@ -24,6 +24,8 @@ public class EnemyPlayer : GenericPlayer
     protected new void Update()
     {
         base.Update();
+
+        CheckDirection();
     }
 
 
@@ -35,7 +37,24 @@ public class EnemyPlayer : GenericPlayer
 
 
 
+    private void GetPath() {
+
+        path = GetComponent<AIPath>();
+    }
+
+    /**
+     Checks for the direction of the sprite and flips it
+         */
+    private void CheckDirection() {
+        if (path.desiredVelocity.x > Mathf.Epsilon)
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+        else if (path.desiredVelocity.x < (0 - Mathf.Epsilon)) {
+            transform.localScale = new Vector2(-1, 1);
+        }
+
+    }
 
 
 }
-
