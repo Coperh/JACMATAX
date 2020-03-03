@@ -16,6 +16,7 @@ public class HitDector : MonoBehaviour
     }
 
     void PlayerHit(GameObject player) {
+        SoundManagerScript.PlaySound("playerHit");
         GenericPlayer p = player.GetComponent<GenericPlayer>();
         p.DamagePlayer();
         
