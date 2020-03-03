@@ -17,7 +17,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - Test Layer
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Forground
     uniqueID: 2630756935
+    locked: 0
+  - name: New Layer
+    uniqueID: 1550789315
     locked: 0
