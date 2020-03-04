@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class GameController : MonoBehaviour
 {
 
-    [SerializeField] private UnityEngine.Object[] scenes;
+    [SerializeField] private string[] scenes;
 
     private int currentLevel = 0;
 
@@ -99,7 +99,8 @@ public class GameController : MonoBehaviour
 
 
     public void EndGame() {
-        SceneManager.LoadScene("EndScreen");
+        SceneManager.LoadScene(3);
+        // display final score
     }
 
     void changeRound() {
@@ -110,7 +111,6 @@ public class GameController : MonoBehaviour
             {
                 Debug.Log("game Over");
                 EndGame();
-                Destroy(gameObject);
             }
             else
             {
@@ -124,14 +124,23 @@ public class GameController : MonoBehaviour
 
     
     public void LoadNextLevel() {
-
-        SceneManager.LoadScene(scenes[currentLevel].name);
+        int level = currentLevel;
+        
         currentLevel++;
         if (currentLevel > scenes.Length-1) {
             currentLevel = 0;
         }
+
+        Scene nextScene = SceneManager.GetSceneByName(scenes[level]);
+        Debug.Log(nextScene.ToString());
+
+        SceneManager.LoadScene(scenes[level]);
     }
 
+    public (int, int) GetScore() {
+        return (leftScore, rightScore);
+
+    }
 
 }
 

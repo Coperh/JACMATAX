@@ -1096,7 +1096,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1524286228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,6 +1322,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7818477455422300584, guid: 73916447bfa123f4698fc33a40ca284c,
         type: 3}
+      propertyPath: scenes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818477455422300584, guid: 73916447bfa123f4698fc33a40ca284c,
+        type: 3}
       propertyPath: leftAmmo
       value: 100
       objectReference: {fileID: 0}
@@ -1329,6 +1334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rightAmmo
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818477455422300584, guid: 73916447bfa123f4698fc33a40ca284c,
+        type: 3}
+      propertyPath: scenes.Array.data[0]
+      value: GrassLevel
       objectReference: {fileID: 0}
     - target: {fileID: 7818477455422300585, guid: 73916447bfa123f4698fc33a40ca284c,
         type: 3}

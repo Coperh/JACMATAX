@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MultiPlayer.unity
     guid: d12c811925c9c1c4ab368d19d7338283
   - enabled: 1
-    path: Assets/Scenes/GrassLevel.unity
-    guid: da4e6f9d6be65aa4981a03afdc7a892a
-  - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 994e2a38728dd1949a1fe515ab337355
+  - enabled: 1
+    path: Assets/Scenes/GrassLevel.unity
+    guid: da4e6f9d6be65aa4981a03afdc7a892a
   m_configObjects: {}
