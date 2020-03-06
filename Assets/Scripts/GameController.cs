@@ -75,14 +75,12 @@ public class GameController : MonoBehaviour
             rightScore = rightScore + score;
         }
 
-        Debug.Log("Start " +leftAmmo.ToString() + " " + rightAmmo.ToString());
-        Debug.Log("Remain " +  leftAmmoRemaining.ToString() + " " + rightAmmoRemaining.ToString());
+  
         // ammo for next round is all of spend ammo + half of unspent ammo
         leftAmmo = (leftAmmo - leftAmmoRemaining) + (leftAmmoRemaining /2);
         rightAmmo = (rightAmmo - rightAmmoRemaining) + (rightAmmoRemaining / 2);
 
-        Debug.Log(leftScore.ToString() + " " + rightScore.ToString());
-        Debug.Log(leftAmmo.ToString() + " " + rightAmmo.ToString());
+        Debug.Log("Score " +leftScore.ToString() + " " + rightScore.ToString());
         roundOver = true;
     }
 
