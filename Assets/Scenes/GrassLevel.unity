@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001062363}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5225038204864866609}
+        m_MethodName: UnPause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1456,24 +1456,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826969366}
   m_CullTransparentMesh: 0
---- !u!1 &842688058 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5225038204107134194, guid: 826a5c4ab26b5f349a7d6d7558c48306,
-    type: 3}
-  m_PrefabInstance: {fileID: 5225038204864866608}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &842688061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842688058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c488d5bbb87bba40bfadd9d6e22afdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &913119906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,7 +1650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1001062364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7830,9 +7812,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001062363}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5225038204864866609}
+        m_MethodName: Pause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11141,6 +11123,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 826a5c4ab26b5f349a7d6d7558c48306, type: 3}
+--- !u!114 &5225038204864866609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5225038204107134195, guid: 826a5c4ab26b5f349a7d6d7558c48306,
+    type: 3}
+  m_PrefabInstance: {fileID: 5225038204864866608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5cdb3f6b5f7cb547a754848d6a37963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7723912223329009784
 PrefabInstance:
   m_ObjectHideFlags: 0

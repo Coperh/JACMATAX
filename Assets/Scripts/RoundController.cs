@@ -23,6 +23,8 @@ public class RoundController : MonoBehaviour
 
     private Text RightAmmoText;
     private Text LeftAmmoText;
+
+    private GameObject menu;
     
 
 
@@ -31,6 +33,9 @@ public class RoundController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        SetupMenu();
+
         SpawnSprites();
         GetHealthObject();
 
@@ -174,6 +179,34 @@ public class RoundController : MonoBehaviour
 
         FreezePlayers();
     }
+
+
+    // finds and stores game menu
+    public void SetupMenu() {
+        menu = GameObject.Find("PauseMenu");
+
+        menu.SetActive(false);
+    }
+
+
+
+
+
+    // pauses gamn
+    public void Pause() {
+        FreezePlayers();
+        menu.SetActive(true);
+
+
+    }
+    public void UnPause() {
+        UnFreezePlayers();
+        menu.SetActive(false);
+
+    }
+
+
+
 
 
 }
